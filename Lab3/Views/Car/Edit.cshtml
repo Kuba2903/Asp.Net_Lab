@@ -1,0 +1,67 @@
+﻿@model Car
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@Model.Edit(Model.Id) <br/>
+
+<form asp-action="Edit" asp-controller="Car" method="post">
+    <div>
+        <label asp-for="Model">Model samochodu</label>
+        <div>
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="Model" />
+    </div>
+
+    <div>
+        <label asp-for="Producent">Producent samochodu</label>
+        <div>
+            <span asp-validation-for="Producent" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="Producent" />
+    </div>
+
+    <div>
+        <label asp-for="PojemmoscSilnika">Pojemność silnika</label>
+        <div>
+            <span asp-validation-for="PojemmoscSilnika" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="PojemmoscSilnika" />
+    </div>
+
+    <div>
+        <label asp-for="Moc">Moc samochodu</label>
+        <div>
+            <span asp-validation-for="Moc" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="Moc" />
+    </div>
+
+    <div>
+        <label asp-for="RodzajSilnika">Rodzaj silnika</label>
+        <div>
+            <span asp-validation-for="RodzajSilnika" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="RodzajSilnika" />
+    </div>
+
+    <div>
+        <label asp-for="NrRejestracyjny">Numer rejestracyjny</label>
+        <div>
+            <span asp-validation-for="NrRejestracyjny" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="NrRejestracyjny" />
+    </div>
+
+    <div>
+        <label asp-for="Wlasciciel">Właściciel samochodu</label>
+        <div>
+            <span asp-validation-for="Wlasciciel" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="Wlasciciel" />
+    </div>
+
+    <button type="submit">Zapisz</button>
+</form>
