@@ -1,0 +1,15 @@
+﻿@model Contact
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form asp-action="Details" asp-controller="Contact">
+    <label class="form-control" asp-for="Name">Imię @Model.Name</label>
+    <label class="form-control" asp-for="Email">Email @Model.Email</label>
+    <label class="form-control" asp-for="Subject">Temat @Model.Subject</label>
+    <label class="form-control" asp-for="Message">Wiadomość @Model.Message</label>
+    <label class="form-control" asp-for="Priority">Priorytet @Model.Priority</label>
+    <label class="form-control" asp-for="Date">Data @Model.Date</label>
+</form>

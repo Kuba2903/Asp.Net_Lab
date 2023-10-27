@@ -6,11 +6,15 @@ namespace Lab3.Controllers
     public class CarController : Controller
     {
 
-        static Dictionary<int,Car> _cars = new Dictionary<int,Car>();
-        
+        private readonly ICarService _carService;
+
+        public CarController(ICarService service)
+        {
+            _carService = service;
+        }
         public IActionResult Index()
         {
-            return View(_cars);
+            return View(_carService.FindAll());
         }
 
         [HttpGet]
@@ -24,9 +28,7 @@ namespace Lab3.Controllers
         {
             if(ModelState.IsValid)
             {
-                int id = _cars.Keys.Count != 0 ? _cars.Keys.Max() : 0;
-                car.Id = id + 1;
-                _cars.Add(car.Id, car);
+                _carService.Add(car);
                 return RedirectToAction("Index");
             }else
                 return View(car);
@@ -37,15 +39,15 @@ namespace Lab3.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            var car = _carService.FindById(id);
 
-            if (_cars.ContainsKey(id))
+            if (car != null)
             {
-                return View(_cars[id]);
+                return View(car);
             }
-            else
-            {
-                return NotFound();
-            };
+
+           return NotFound();
+            
         }
 
         [HttpPost]
@@ -53,27 +55,21 @@ namespace Lab3.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_cars.ContainsKey(editedCar.Id))
-                {
-                    _cars[editedCar.Id] = editedCar;
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    return NotFound();
-                }
+                _carService.Update(editedCar);
+                return RedirectToAction("Index");
             }
-            else
-            {
-                return View(editedCar);
-            }
+
+            return View(editedCar);
+            
         }
 
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            if(_cars.ContainsKey(id))
-                return View(_cars[id]);
+            var car = _carService.FindById(id);
+
+            if (car != null)
+                return View(car);
             else
                 return NotFound();
         }
@@ -82,9 +78,11 @@ namespace Lab3.Controllers
         [ActionName("Delete")]
         public IActionResult ConfirmDelete(int id)
         {
-            if (_cars.ContainsKey(id))
+            var car = _carService.FindById(id);
+
+            if (car != null)
             {
-                _cars.Remove(id);
+                _carService.Delete(id);
                 return RedirectToAction("Index");
             }
             else
@@ -96,8 +94,10 @@ namespace Lab3.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
-            if (_cars.ContainsKey(id))
-                return View(_cars[id]);
+            var car = _carService.FindById(id);
+
+            if (car != null)
+                return View(car);
             else
                 return NotFound();
         }

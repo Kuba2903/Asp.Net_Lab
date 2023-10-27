@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bigie\\source\\repos\\Lab ASP.NET\\Lab3\\Lab3.csproj",
-      "projectName": "Lab3",
-      "projectPath": "C:\\Users\\bigie\\source\\repos\\Lab ASP.NET\\Lab3\\Lab3.csproj",
+      "projectUniqueName": "C:\\Users\\bigie\\source\\repos\\Lab ASP.NET\\Lab3\\Lab3 - App.csproj",
+      "projectName": "Lab3 - App",
+      "projectPath": "C:\\Users\\bigie\\source\\repos\\Lab ASP.NET\\Lab3\\Lab3 - App.csproj",
       "packagesPath": "C:\\Users\\bigie\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\bigie\\source\\repos\\Lab ASP.NET\\Lab3\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,45 +1,51 @@
-﻿@model Dictionary<int,Car>
+﻿@model List<Car>
 @{
 }
 
 <h2>Lista samochodów</h2>
 
-<table class="table">
-    <tr>
-        <th>Model</th>
-        <th>Producent</th>
-        <th>Pojemność silnika</th>
-        <th>Moc</th>
-        <th>Rodzaj silnika</th>
-        <th>Nr. Rejestracyjny</th>
-        <th>Właściciel</th>
-        <th>Akcje</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+@if (Model.Count > 0)
+{
+    <table class="table">
         <tr>
-            <td>@item.Value.Model</td>
-            <td>@item.Value.Producent</td>
-            <td>@item.Value.PojemmoscSilnika</td>
-            <td>@item.Value.Moc</td>
-            <td>@item.Value.RodzajSilnika</td>
-            <td>@item.Value.NrRejestracyjny</td>
-            <td>@item.Value.Wlasciciel</td>
-            <td>
-                <a class="btn btn-primary"
-                   asp-action="Edit"
-                   asp-controller="Car"
-                   asp-route-id=@item.Value.Id>Edytuj</a>
-                <a class="btn btn-primary"
-                   asp-action="Details"
-                   asp-controller="Car"
-                   asp-route-id=@item.Value.Id>Szczegóły</a>
-                <a class="btn btn-primary"
-                   asp-action="Delete"
-                   asp-controller="Car"
-                   asp-route-id=@item.Value.Id>Usuń</a>
-            </td>
+            <th>@Html.DisplayNameFor(model => model[0].Model)</th>
+            <th>@Html.DisplayNameFor(model => model[0].Producent)</th>
+            <th>@Html.DisplayNameFor(model => model[0].PojemmoscSilnika)</th>
+            <th>@Html.DisplayNameFor(model => model[0].Moc)</th>
+            <th>@Html.DisplayNameFor(model => model[0].RodzajSilnika)</th>
+            <th>@Html.DisplayNameFor(model => model[0].NrRejestracyjny)</th>
+            <th>@Html.DisplayNameFor(model => model[0].Wlasciciel)</th>
+            <th>@Html.DisplayNameFor(model => model[0].Priority)</th>
+            <th>Akcje</th>
         </tr>
-    }
-</table>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Model</td>
+                <td>@item.Producent</td>
+                <td>@item.PojemmoscSilnika</td>
+                <td>@item.Moc</td>
+                <td>@item.RodzajSilnika</td>
+                <td>@item.NrRejestracyjny</td>
+                <td>@item.Wlasciciel</td>
+                <td>@item.Priority.GetDisplayName()</td>
+
+                <td>
+                    <a class="btn btn-primary"
+                    asp-action="Edit"
+                    asp-controller="Car"
+                    asp-route-id=@item.Id>Edytuj</a>
+                    <a class="btn btn-primary"
+                    asp-action="Details"
+                    asp-controller="Car"
+                    asp-route-id=@item.Id>Szczegóły</a>
+                    <a class="btn btn-primary"
+                    asp-action="Delete"
+                    asp-controller="Car"
+                    asp-route-id=@item.Id>Usuń</a>
+                </td>
+            </tr>
+        }
+    </table>
+}
