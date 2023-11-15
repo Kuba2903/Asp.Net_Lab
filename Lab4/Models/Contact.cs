@@ -36,5 +36,6 @@ namespace Lab4.Models
         [HiddenInput]
         [Display(Name = "Utworzono")]
         public DateTime Created { get; set; }
+
     }
 }

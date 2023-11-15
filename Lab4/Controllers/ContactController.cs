@@ -6,12 +6,11 @@ namespace Lab4.Controllers
     public class ContactController : Controller
     {
         private readonly IContactService _contactService;
-        private readonly IDateTimeProvider _timeProvider;
+        //private readonly IDateTimeProvider _timeProvider;
 
-        public ContactController(IContactService service, IDateTimeProvider dateService)
+        public ContactController(IContactService service)
         {
             _contactService = service;
-            _timeProvider = dateService;
         }
         public IActionResult Index()
         {

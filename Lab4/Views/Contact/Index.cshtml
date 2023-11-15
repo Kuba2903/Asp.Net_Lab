@@ -16,7 +16,6 @@
             <th>@Html.DisplayNameFor(model => model[0].Message)</th>
             <th>@Html.DisplayNameFor(model => model[0].Priority)</th>
             <th>@Html.DisplayNameFor(model => model[0].Date)</th>
-            <th>@Html.DisplayNameFor(model => model[0].Created)</th>
             <th>Akcje</th>
         </tr>
 
@@ -27,9 +26,8 @@
                 <td>@item.Email</td>
                 <td>@item.Subject</td>
                 <td>@item.Message</td>
-                <td>@item.Priority.GetDisplayName()</td>
+                <td>@item.Priority</td>
                 <td>@item.Date.Date</td>
-                <td>@item.Created</td>
                 <td>
                     <a class="btn btn-primary"
                        asp-action="Edit"
