@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace Lab3.Models
@@ -38,5 +40,11 @@ namespace Lab3.Models
         {
             return "Edycja " + id;
         }
+
+        [HiddenInput]
+        public int OrganizationId { get; set; }
+
+        [ValidateNever]
+        public List<SelectListItem> Organizations { get; set; }
     }
 }

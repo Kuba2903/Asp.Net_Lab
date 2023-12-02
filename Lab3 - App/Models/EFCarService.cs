@@ -1,5 +1,6 @@
 ﻿
 using Data___App;
+using Data___App.Entities;
 using Lab3.Mappers;
 namespace Lab3.Models
 {
@@ -36,6 +37,12 @@ namespace Lab3.Models
         {
             _context.Cars.Update(CarMapper.MapToEntity(car));
             _context.SaveChanges();
+        }
+
+
+        public List<OrganizationEntity> FindAllOrganizationsForVieModel()
+        {
+            return _context.Organizations.ToList();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Lab3.Models
+﻿using Data___App.Entities;
+
+namespace Lab3.Models
 {
     public class MemoryCarService : ICarService
     {
@@ -14,6 +16,11 @@
         public void Delete(int id) => _cars.Remove(id);
 
         public List<Car> FindAll() => _cars.Values.ToList();
+
+        public List<OrganizationEntity> FindAllOrganizationsForVieModel()
+        {
+            throw new NotImplementedException();
+        }
 
         public Car? FindById(int id) => _cars[id];
 

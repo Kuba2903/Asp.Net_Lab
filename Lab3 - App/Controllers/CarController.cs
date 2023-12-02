@@ -1,8 +1,11 @@
 ﻿using Lab3.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Lab3.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CarController : Controller
     {
 
@@ -12,6 +15,8 @@ namespace Lab3.Controllers
         {
             _carService = service;
         }
+
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View(_carService.FindAll());
@@ -20,7 +25,12 @@ namespace Lab3.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            Car model = new Car();
+            model.Organizations = _carService
+                .FindAllOrganizationsForVieModel()
+                .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Tytul })
+                .ToList();
+            return View(model);
         }
 
         [HttpPost]

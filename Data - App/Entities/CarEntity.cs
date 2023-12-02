@@ -41,5 +41,9 @@ namespace Data___App.Entities
         public string Wlasciciel { get; set; }
 
         public byte Priorytet { get; set; }
+
+
+        public int OrganizationId { get; set; }
+        public OrganizationEntity? Organization { get; set; }
     }
 }
