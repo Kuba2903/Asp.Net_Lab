@@ -162,15 +162,15 @@ namespace Data___App.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bb359dfe-7087-4fb9-ad2a-b646613c5a07",
-                            ConcurrencyStamp = "bb359dfe-7087-4fb9-ad2a-b646613c5a07",
+                            Id = "85174cec-84d7-4d20-9234-12e9171f6d28",
+                            ConcurrencyStamp = "85174cec-84d7-4d20-9234-12e9171f6d28",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "51ec80cc-1aa0-447d-a11b-d79ef9d8d246",
-                            ConcurrencyStamp = "51ec80cc-1aa0-447d-a11b-d79ef9d8d246",
+                            Id = "7ddad46b-f708-4ec5-b0d0-cc5f586f3100",
+                            ConcurrencyStamp = "7ddad46b-f708-4ec5-b0d0-cc5f586f3100",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -265,33 +265,33 @@ namespace Data___App.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b03bee7a-f912-4ff3-a991-8d332e2150a0",
+                            Id = "3a240411-4711-4b80-9dbd-5d22c9798a76",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "806db565-cbca-4763-8706-e45a750493f3",
+                            ConcurrencyStamp = "c10aca48-87e2-4bc5-8f4f-401ff8499403",
                             Email = "adam@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "adam@wsei.edu.pl",
                             NormalizedUserName = "ADAM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMBL4jO5Y5WlYi+C/m3nZjMo3+vpAul1JRsfzZje+MOmWPl3xsLVR4rlGgsom1I5jg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECx+niiBuqxBwCBn7uaEegOkicX7A5B8tQyeMB0XxwLwRQIe1xz6l86viQU2VCVQtA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cfecc988-003d-4500-a540-7b910388999b",
+                            SecurityStamp = "86c459c7-5f93-46eb-9e2e-b7bf37cb3887",
                             TwoFactorEnabled = false,
                             UserName = "adam"
                         },
                         new
                         {
-                            Id = "79606311-49ed-4abd-8f01-27f580f217fe",
+                            Id = "7e428264-eb9c-4118-b818-febddbe76718",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dad166e0-33db-45ae-b28a-7613f051a322",
+                            ConcurrencyStamp = "1401377c-c5a2-480a-91b8-991fa895cc78",
                             Email = "karolina@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "karolina@wsei.edu.pl",
                             NormalizedUserName = "KAROLINA",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHq5cGqU3/QabzfxA6pRODqe+TKm1KXTRA30v21W2nYIzz5V69+5n2TR3UxNaq9k8w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDuk7BkhnwOgDH9y0MYYTKBxUKkg/38ZEwzpPxMkg5NNapDjNZfkHebj4w0UhIymPA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "55fb0b81-bb94-4363-bcba-276165d2fd2f",
+                            SecurityStamp = "7bddb19e-df50-4930-bef1-28452b4c7365",
                             TwoFactorEnabled = false,
                             UserName = "karolina"
                         });
@@ -359,13 +359,13 @@ namespace Data___App.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "b03bee7a-f912-4ff3-a991-8d332e2150a0",
-                            RoleId = "bb359dfe-7087-4fb9-ad2a-b646613c5a07"
+                            UserId = "3a240411-4711-4b80-9dbd-5d22c9798a76",
+                            RoleId = "85174cec-84d7-4d20-9234-12e9171f6d28"
                         },
                         new
                         {
-                            UserId = "79606311-49ed-4abd-8f01-27f580f217fe",
-                            RoleId = "51ec80cc-1aa0-447d-a11b-d79ef9d8d246"
+                            UserId = "7e428264-eb9c-4118-b818-febddbe76718",
+                            RoleId = "7ddad46b-f708-4ec5-b0d0-cc5f586f3100"
                         });
                 });
 

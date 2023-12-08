@@ -18,7 +18,8 @@ namespace Lab3.Mappers
                 RodzajSilnika = entity.RodzajSilnika,
                 NrRejestracyjny = entity.NrRejestracyjny,
                 Wlasciciel = entity.Wlasciciel,
-                Priority = (Priority)entity.Priorytet
+                Priority = (Priority)entity.Priorytet,
+                OrganizationId = entity.OrganizationId
             };
         }
 
@@ -34,7 +35,8 @@ namespace Lab3.Mappers
                 RodzajSilnika = model.RodzajSilnika,
                 NrRejestracyjny = model.NrRejestracyjny,
                 Wlasciciel = model.Wlasciciel,
-                Priorytet = (byte)model.Priority
+                Priorytet = (byte)model.Priority,
+                OrganizationId = model.OrganizationId,
             };
         }
     }

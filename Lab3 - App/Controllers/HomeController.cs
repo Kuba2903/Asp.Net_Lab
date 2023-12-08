@@ -1,4 +1,5 @@
 ﻿using Lab3.Models;
+using Lab3___App.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -15,6 +16,7 @@ namespace Lab3.Controllers
 
         public IActionResult Index()
         {
+            ViewData["visit"] = Response.HttpContext.Items[LastVisitCookie.CookieName];
             return View();
         }
 

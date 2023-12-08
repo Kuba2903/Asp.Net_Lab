@@ -10,5 +10,7 @@ namespace Lab3.Models
         List<Car> FindAll();
         Car? FindById(int id);
         List<OrganizationEntity> FindAllOrganizationsForVieModel();
+
+        PagingList<Car> FindPage(int page, int pageSize);
     }
 }

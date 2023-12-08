@@ -1,0 +1,111 @@
+﻿@model Car
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form asp-action="CreateAPI" asp-controller="Car" method="post">
+    <div>
+        <label asp-for="Model"></label>
+        <div>
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="Model" />
+    </div>
+
+    <div>
+        <label asp-for="Producent"></label>
+        <div>
+            <span asp-validation-for="Producent" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="Producent" />
+    </div>
+
+    <div>
+        <label asp-for="PojemmoscSilnika"></label>
+        <div>
+            <span asp-validation-for="PojemmoscSilnika" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="PojemmoscSilnika" />
+    </div>
+
+    <div>
+        <label asp-for="Moc"></label>
+        <div>
+            <span asp-validation-for="Moc" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="Moc" />
+    </div>
+
+    <div>
+        <label asp-for="RodzajSilnika"></label>
+        <div>
+            <span asp-validation-for="RodzajSilnika" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="RodzajSilnika" />
+    </div>
+
+    <div>
+        <label asp-for="NrRejestracyjny"></label>
+        <div>
+            <span asp-validation-for="NrRejestracyjny" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="NrRejestracyjny" />
+    </div>
+
+    <div>
+        <label asp-for="Wlasciciel"></label>
+        <div>
+            <span asp-validation-for="Wlasciciel" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="Wlasciciel" />
+    </div>
+
+    <div>
+        <label asp-for="Priority"></label>
+        <div>
+            <span asp-validation-for="Priority" class="text-danger"></span>
+        </div>
+        <select class="form-control" asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()"></select>
+    </div>
+
+    <div class="form-group">
+        <label for="filter">Filtr organizacji</label>
+        <input class="form-control mb-3" type="text" name="filter" id="filter" />
+        <label asp-for="OrganizationId"></label>
+        <select class="form-control mb-3" asp-for="OrganizationId"></select>
+    </div>
+
+    <button type="submit">Zapisz</button>
+</form>
+
+@section Scripts{
+    <script>
+        let select = document.getElementById("OrganizationId");
+        let filter = document.getElementById("filter");
+        filter.onchange = function (e) {
+            if (filter.value.lenght == 0) {
+                return;
+            }
+            fetch(`/api/organizations?filter=${filter.value}`)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json()
+                    }
+                    throw "no ok, status " + response.status;
+                })
+                .then(json => {
+                    select.innerHTML = '';
+                    for (let item of json) {
+                        let option = document.createElement('option');
+                        option.setAttribute('value', item.id);
+                        option.innerText = item.tytul;
+                        select.appendChild(option);
+                    }
+                })
+                .catch(e => {
+                    console.log('cant get data from api', e);
+                });
+        };
+    </script>
+}

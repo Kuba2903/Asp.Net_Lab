@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Lab3.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class CarController : Controller
     {
 
@@ -20,6 +20,11 @@ namespace Lab3.Controllers
         public IActionResult Index()
         {
             return View(_carService.FindAll());
+        }
+
+        public IActionResult PagedIndex([FromQuery] int page = 1, [FromQuery] int size = 5)
+        {
+            return View(_carService.FindPage(page, size));
         }
 
         [HttpGet]
@@ -44,7 +49,25 @@ namespace Lab3.Controllers
                 return View(car);
         }
 
-        
+
+        [HttpGet]
+        public ActionResult CreateAPI()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateAPI(Car c)
+        {
+            if (ModelState.IsValid)
+            {
+                _carService.Add(c);
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+
 
         [HttpGet]
         public IActionResult Edit(int id)

@@ -3,6 +3,7 @@ using Lab3.Models;
 using System.Xml.Linq;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Lab3___App.Models;
 
 namespace Lab3___App
 {
@@ -47,12 +48,13 @@ namespace Lab3___App
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseMiddleware<LastVisitCookie>();
             app.UseAuthentication();;
 
             app.UseAuthorization();
             app.UseSession();
             app.MapRazorPages();
-
+            
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");

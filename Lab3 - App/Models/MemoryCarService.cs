@@ -24,6 +24,11 @@ namespace Lab3.Models
 
         public Car? FindById(int id) => _cars[id];
 
+        public PagingList<Car> FindPage(int page, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Car car) => _cars[car.Id] = car;
     }
 }

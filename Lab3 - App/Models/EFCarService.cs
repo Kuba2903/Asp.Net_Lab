@@ -2,11 +2,13 @@
 using Data___App;
 using Data___App.Entities;
 using Lab3.Mappers;
+using System.Drawing;
+
 namespace Lab3.Models
 {
     public class EFCarService : ICarService
     {
-        private AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public EFCarService(AppDbContext context)
         {
@@ -43,6 +45,19 @@ namespace Lab3.Models
         public List<OrganizationEntity> FindAllOrganizationsForVieModel()
         {
             return _context.Organizations.ToList();
+        }
+
+        public PagingList<Car> FindPage(int page, int size)
+        {
+            return  PagingList<Car>.Create(
+            (p, s) => (IEnumerable<Car>)_context.Cars
+                    .OrderBy(b => b.Id)
+                    .Skip((p - 1) * size)
+                    .Take(s)
+                    .ToList(),
+            _context.Cars.Count(),
+            page,
+            size);
         }
     }
 }
