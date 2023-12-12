@@ -57,7 +57,7 @@ namespace Data___App
                 EmailConfirmed = true,
                 UserName = "adam",
                 NormalizedUserName = "ADAM",
-                NormalizedEmail = "adam@wsei.edu.pl"
+                NormalizedEmail = "ADAM@WSEI.EDU.PL"
             };
 
             var user = new IdentityUser
@@ -67,15 +67,14 @@ namespace Data___App
                 EmailConfirmed = true,
                 UserName = "karolina",
                 NormalizedUserName = "KAROLINA",
-                NormalizedEmail = "karolina@wsei.edu.pl"
+                NormalizedEmail = "KAROLINA@WSEI.EDU.PL"
             };
 
             PasswordHasher<IdentityUser> hasher = new PasswordHasher<IdentityUser>();
             admin.PasswordHash = hasher.HashPassword(admin, "1234abcd!@#$ABCD");
             user.PasswordHash = hasher.HashPassword(user, "abcd1234!AB");
 
-            modelBuilder.Entity<IdentityUser>().HasData(admin);
-            modelBuilder.Entity<IdentityUser>().HasData(user);
+            modelBuilder.Entity<IdentityUser>().HasData(admin, user);
 
             modelBuilder.Entity<IdentityUserRole<string>>()
                 .HasData(new IdentityUserRole<string>
